@@ -1,0 +1,4 @@
+collections:
+  - name: https://github.com/AshAvalanche/ansible-avalanche-collection.git
+    type: git
+    version: main

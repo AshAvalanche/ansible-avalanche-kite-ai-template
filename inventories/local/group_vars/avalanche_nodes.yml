@@ -1,0 +1,12 @@
+# Copyright (C) 2026, E36 Knots
+# See the file LICENSE for licensing terms.
+---
+avalanchego_version: 1.14.1
+avalanchego_network_id: mainnet
+avalanchego_vms_install:
+  subnet-evm: 0.8.0
+avalanchego_node_json:
+  http-allowed-hosts: "*"
+  partial-sync-primary-network: true
+avalanchego_track_subnets:
+  - "21uUaTxVdR3Sp6SJhpcSrdH1g66aFoE8mPQDvwKJCjXNexo5y6"
