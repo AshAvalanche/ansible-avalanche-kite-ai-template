@@ -27,5 +27,29 @@ How to use the [ash.avalanche](https://github.com/AshAvalanche/ansible-avalanche
 1. Bootstrap the Avalanche nodes:
 
    ```bash
-   ansible-playbook ash.avalanche.provision_nodes -i inventories/local
+   ansible-playbook ash.avalanche.provision_nodes -i inventories/local -c local -e avalanchego_public_ip=$(curl -s ifconfig.me)
+   ```
+
+2. Track node bootstrapping:
+
+   ```bash
+   # P-Chain bootstrapping
+   curl -X POST --data '{
+      "jsonrpc": "2.0",
+      "id"     : 1,
+      "method" : "info.isBootstrapped",
+      "params": {
+         "chain": "P"
+      }
+   }' -H 'content-type:application/json;' http://127.0.0.1:9650/ext/info
+
+   # Kite AI L1 bootstrapping
+   curl -X POST --data '{
+      "jsonrpc": "2.0",
+      "id"     : 1,
+      "method" : "info.isBootstrapped",
+      "params": {
+         "chain": "3USaEfTcoUhHxpKXvpAG916UKCUEyjrtkg2hBArBG3JyDP7my"
+      }
+   }' -H 'content-type:application/json;' http://127.0.0.1:9650/ext/info
    ```
